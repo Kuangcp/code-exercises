@@ -8,5 +8,7 @@ target/
 out/
 
 *.iml
+.idea/
 
+.vscode/
 

@@ -14,6 +14,9 @@ def coin_problem_one(n, m):
 
 
 # TODO 利用递归
+def coin_problem_two(n, m):
+    pass
+
 
 class MainTest(unittest.TestCase):
     def test_one(self):
