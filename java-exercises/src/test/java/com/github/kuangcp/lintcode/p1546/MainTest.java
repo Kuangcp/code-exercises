@@ -7,7 +7,7 @@ import org.junit.Test;
 
 public class MainTest {
 
-  public int solutionOne(int m, int n) {
+  private int solutionOne(int m, int n) {
     int[] data = {100, 50, 20, 10, 5, 2, 1};
     int result = 0;
     int remainder = m - n;
