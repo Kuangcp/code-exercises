@@ -1,4 +1,6 @@
 # 刷题
+[![996.icu](https://img.shields.io/badge/link-996.icu-red.svg)](https://996.icu)
+
 使用 VSCode LeetCode 插件, 方便刷题
 
 ## LeetCode

@@ -12,3 +12,6 @@ out/
 
 .vscode/
 
+# 根目录下所有 java py 文件
+/*.java
+/*.py
