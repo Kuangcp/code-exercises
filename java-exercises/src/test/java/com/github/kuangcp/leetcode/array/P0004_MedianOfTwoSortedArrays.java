@@ -41,6 +41,7 @@ import java.util.Stack;
  */
 public class P0004_MedianOfTwoSortedArrays {
 
+  // 6ms
   public double findMedianSortedArrays(int[] nums1, int[] nums2) {
     int size1 = nums1.length;
     int size2 = nums2.length;
@@ -53,22 +54,22 @@ public class P0004_MedianOfTwoSortedArrays {
     if (size2 == 0 && size1 == 1) {
       return nums1[0];
     }
+    if (size1 == 1 && size2 == 1) {
+      return half(nums1[0], nums2[0]);
+    }
+    if (size1 == 2 && size2 == 0) {
+      return half(nums1[0], nums1[1]);
+    }
+    if (size1 == 0 && size2 == 2) {
+      return half(nums2[0], nums2[1]);
+    }
 
     Stack<Integer> stack = new Stack<>();
 
     int total = size1 + size2;
     if (total % 2 == 0) {
-      if (size1 == 1 && size2 == 1) {
-        return (nums1[0] + nums2[0]) / 2.0;
-      }
-      if (size1 == 2 && size2 == 0) {
-        return (nums1[0] + nums1[1]) / 2.0;
-      }
-      if (size1 == 0 && size2 == 2) {
-        return (nums2[0] + nums2[1]) / 2.0;
-      }
       cal(nums1, nums2, size1, size2, stack, total);
-      return (stack.pop() + stack.pop()) / 2.0;
+      return half(stack.pop(), stack.pop());
     } else {
       cal(nums1, nums2, size1, size2, stack, total);
       return stack.pop();
@@ -100,10 +101,73 @@ public class P0004_MedianOfTwoSortedArrays {
     }
   }
 
-  /////////////////////
+  private double half(int a, int b) {
+    return (a + b) / 2.0;
+  }
 
+  /////////////////////
+  // 2ms
   public double findMedianSortedArrays2(int[] nums1, int[] nums2) {
-    return 0;
+    int size1 = nums1.length;
+    int size2 = nums2.length;
+    if (size1 == 0 && size2 == 0) {
+      return 0;
+    }
+    if (size1 == 0 && size2 == 1) {
+      return nums2[0];
+    }
+    if (size2 == 0 && size1 == 1) {
+      return nums1[0];
+    }
+    if (size1 == 1 && size2 == 1) {
+      return half(nums1[0], nums2[0]);
+    }
+    if (size1 == 2 && size2 == 0) {
+      return half(nums1[0], nums1[1]);
+    }
+    if (size1 == 0 && size2 == 2) {
+      return half(nums2[0], nums2[1]);
+    }
+
+    int[] cache = new int[]{Integer.MIN_VALUE, Integer.MIN_VALUE};
+    int total = size1 + size2;
+    double medium = total / 2.0;
+    int index1 = 0, index2 = 0;
+    while ((index1 + index2) <= medium) {
+      if (index1 == size1) {
+        push(cache, nums2[index2]);
+        index2++;
+        continue;
+      }
+      if (index2 == size2) {
+        push(cache, nums1[index1]);
+        index1++;
+        continue;
+      }
+      if (nums1[index1] <= nums2[index2]) {
+        push(cache, nums1[index1]);
+        index1++;
+      } else {
+        push(cache, nums2[index2]);
+        index2++;
+      }
+    }
+
+    if (total % 2 == 0) {
+      return half(cache[0], cache[1]);
+    } else {
+      return cache[1];
+    }
+  }
+
+  private void push(int[] cache, int value) {
+    if (cache[1] == Integer.MIN_VALUE) {
+      cache[1] = value;
+      return;
+    }
+
+    cache[0] = cache[1];
+    cache[1] = value;
   }
 
   ///////////////////

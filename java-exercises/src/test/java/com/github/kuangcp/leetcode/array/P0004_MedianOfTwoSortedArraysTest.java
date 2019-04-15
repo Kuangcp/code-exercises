@@ -3,7 +3,6 @@ package com.github.kuangcp.leetcode.array;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.IsEqual.equalTo;
 
-import java.util.function.BinaryOperator;
 import org.junit.Test;
 
 /**
