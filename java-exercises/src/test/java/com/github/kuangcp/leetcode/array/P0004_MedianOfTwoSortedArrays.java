@@ -41,7 +41,7 @@ import java.util.Stack;
  */
 public class P0004_MedianOfTwoSortedArrays {
 
-  // 6ms
+  // 6ms  https://leetcode.com/submissions/detail/221702336/
   public double findMedianSortedArrays(int[] nums1, int[] nums2) {
     int size1 = nums1.length;
     int size2 = nums2.length;
@@ -106,7 +106,7 @@ public class P0004_MedianOfTwoSortedArrays {
   }
 
   /////////////////////
-  // 2ms
+  // 2ms https://leetcode.com/submissions/detail/222601465/
   public double findMedianSortedArrays2(int[] nums1, int[] nums2) {
     int size1 = nums1.length;
     int size2 = nums2.length;

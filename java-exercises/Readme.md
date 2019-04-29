@@ -8,6 +8,7 @@ https://leetcode.com/kuangcp/
 
 > [Play Leetcode](https://github.com/liuyubobobo/Play-Leetcode)
 > [LeetCodeAnimation](https://github.com/MisterBooo/LeetCodeAnimation)
+> [leetcode-java](https://github.com/andavid/leetcode-java)
 
 ## LintCode
 
