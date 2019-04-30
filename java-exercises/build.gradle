@@ -25,6 +25,13 @@ repositories {
 
 
 dependencies {
+  annotationProcessor 'org.projectlombok:lombok:1.18.2'
+  compileOnly 'org.projectlombok:lombok:1.18.2'
+  testAnnotationProcessor 'org.projectlombok:lombok:1.18.2'
+  testCompileOnly 'org.projectlombok:lombok:1.18.2'
+
+  implementation 'ch.qos.logback:logback-classic:1.2.3'
+  
   testImplementation group: 'junit', name: 'junit', version: '4.12'
 }
 
