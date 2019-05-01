@@ -1,10 +1,12 @@
 package com.github.kuangcp.leetcode.linkedlist;
 
+import lombok.extern.slf4j.Slf4j;
 import org.junit.Test;
 
 /**
  * @author kuangcp on 2019-04-30 11:26 AM
  */
+@Slf4j
 public class P0019_RemoveNthNodeTest {
 
   private P0019_RemoveNthNode target = new P0019_RemoveNthNode();

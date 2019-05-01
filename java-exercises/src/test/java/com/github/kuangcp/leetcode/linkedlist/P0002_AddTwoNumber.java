@@ -6,8 +6,9 @@ package com.github.kuangcp.leetcode.linkedlist;
  */
 public class P0002_AddTwoNumber {
 
+  // me
   public ListNode addTwoNumbers(ListNode one, ListNode other) {
-    ListNode result = new ListNode(0);
+    ListNode result = new ListNode(-1);
     ListNode pointer = result;
 
     int temp = 0;
@@ -62,15 +63,16 @@ public class P0002_AddTwoNumber {
     pointer.next = new ListNode(value);
     pointer = pointer.next;
 
-//    if (pointer.val == -1) {
-//      pointer.val = value;
-//    } else {
-//      pointer.next = new ListNode(value);
-//      pointer = pointer.next;
-//    }
+    if (pointer.val == -1) {
+      pointer.val = value;
+    } else {
+      pointer.next = new ListNode(value);
+      pointer = pointer.next;
+    }
     return pointer;
   }
 
+  // other best
   public ListNode addTwoNumbers2(ListNode l1, ListNode l2) {
     ListNode result = new ListNode(0);
     ListNode pointer = result;
