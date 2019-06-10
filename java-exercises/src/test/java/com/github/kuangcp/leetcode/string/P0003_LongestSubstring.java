@@ -16,17 +16,18 @@ class P0003_LongestSubstring {
       return 0;
     }
 
+    int max = 0;
     LinkedQueue<Character> queue = new LinkedQueue<>();
     for (int j = 0; j < s.length(); j++) {
       char value = s.charAt(j);
       if (queue.isEmpty()) {
         queue.add(value);
+        max = 1;
         continue;
       }
 
       int count = 0;
       boolean hasRepeated = false;
-      queue.add(value);
 
       Node pointer = queue.head;
       while (Objects.nonNull(pointer)) {
@@ -39,17 +40,18 @@ class P0003_LongestSubstring {
         count++;
         pointer = pointer.next;
       }
+      queue.add(value);
 
       if (hasRepeated) {
-        for (int i = 0; i < count; i++) {
+        for (int i = 0; i <= count; i++) {
           queue.poll();
         }
       }
-
+      if (max < queue.size()) {
+        max = queue.size();
+      }
     }
-
-    queue.show();
-    return queue.size();
+    return max;
   }
 
 }

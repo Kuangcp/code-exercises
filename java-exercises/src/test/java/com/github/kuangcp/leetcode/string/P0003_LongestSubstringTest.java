@@ -11,12 +11,13 @@ import org.junit.Test;
  */
 public class P0003_LongestSubstringTest {
 
-  P0003_LongestSubstring target = new P0003_LongestSubstring();
+  private P0003_LongestSubstring target = new P0003_LongestSubstring();
 
   @Test
   public void testLengthOfLongestSubstring() throws Exception {
-    int result = target.lengthOfLongestSubstring("ssds");
-//    int result = target.lengthOfLongestSubstring("sdddadd");
-    assertThat(result, equalTo(2));
+    assertThat(target.lengthOfLongestSubstring("bbbbb"), equalTo(1));
+    assertThat(target.lengthOfLongestSubstring("abcabcbb"), equalTo(3));
+    assertThat(target.lengthOfLongestSubstring("pwwkew"), equalTo(3));
+    assertThat(target.lengthOfLongestSubstring(" "), equalTo(1));
   }
 }

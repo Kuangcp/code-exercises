@@ -9,18 +9,19 @@ targetCompatibility = 1.8
 buildDir = 'out/build'
 
 repositories {
-  def aliyun = "http://maven.aliyun.com/nexus/content/groups/public/"
-  def abroad = "http://central.maven.org/maven2/"
+  mavenLocal()
+
+  def aliYun = "http://maven.aliyun.com/nexus/content/groups/public/"
+  def kuangcp = "https://gitee.com/gin9/MavenRepos/raw/master"
+  
   maven {
-    url = aliyun
-    artifactUrls abroad
+    url = aliYun
   }
   maven {
-    url = "https://gitee.com/gin9/MavenRepos/raw/master"
+    url = kuangcp
   }
   mavenCentral()
   jcenter()
-  mavenLocal()
 }
 
 
@@ -31,10 +32,6 @@ dependencies {
   testCompileOnly 'org.projectlombok:lombok:1.18.2'
 
   implementation 'ch.qos.logback:logback-classic:1.2.3'
-  
-  testImplementation group: 'junit', name: 'junit', version: '4.12'
-}
 
-//test {
-//  failFast = true
-//}
+  testImplementation 'junit:junit:4.12'
+}

@@ -25,7 +25,7 @@ class LinkedQueue<T> implements Iterable<T> {
 
     Node cursor;
 
-    public Itr(Node head) {
+    Itr(Node head) {
       cursor = head;
     }
 
@@ -47,7 +47,7 @@ class LinkedQueue<T> implements Iterable<T> {
     T value;
     Node next;
 
-    public Node(T value, Node next) {
+    Node(T value, Node next) {
       this.value = value;
       this.next = next;
     }
@@ -57,27 +57,28 @@ class LinkedQueue<T> implements Iterable<T> {
     }
   }
 
-  public boolean isEmpty() {
+  boolean isEmpty() {
     return count == 0 || Objects.isNull(head);
   }
 
-  public void add(T value) {
+  void add(T value) {
     Node append = new Node(value, null);
     if (Objects.isNull(this.head)) {
       this.head = append;
     }
 
     if (Objects.isNull(this.tail)) {
-      this.tail = append;
+      this.tail = this.head;
     } else {
       this.tail.next = append;
+      this.tail = this.tail.next;
     }
 
     count++;
     log.info("+1 {} {}", count, value);
   }
 
-  public T poll() {
+  T poll() {
     if (Objects.isNull(this.head)) {
       return null;
     }
@@ -92,16 +93,17 @@ class LinkedQueue<T> implements Iterable<T> {
     return result;
   }
 
-  public int size() {
+  int size() {
     return count;
   }
 
-  public void show() {
+  public String show() {
     Node pointer = this.head;
+    StringBuilder builder = new StringBuilder();
     while (Objects.nonNull(pointer)) {
-      System.out.print(pointer.value + "->");
+      builder.append(pointer.value).append("->");
       pointer = pointer.next;
     }
+    return builder.toString();
   }
-
 }
