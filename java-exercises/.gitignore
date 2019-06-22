@@ -4,3 +4,8 @@
 
 *.class
 *.log
+
+./idea
+*.iml
+*.ipr
+*.iws
