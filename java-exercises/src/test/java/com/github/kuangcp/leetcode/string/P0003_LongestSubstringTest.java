@@ -21,7 +21,7 @@ public class P0003_LongestSubstringTest extends Helper<Function<String, Integer>
 
   @Test
   public void testLengthOfLongestSubstring() {
-    test();
+    testAllStrategy();
   }
 
   @Override

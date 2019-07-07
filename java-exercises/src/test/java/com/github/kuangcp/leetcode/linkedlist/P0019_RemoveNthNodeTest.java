@@ -21,7 +21,7 @@ public class P0019_RemoveNthNodeTest extends Helper<BiFunction<ListNode, Integer
 
   @Test
   public void testMain() {
-    test();
+    testAllStrategy();
   }
 
   @Override

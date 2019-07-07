@@ -28,6 +28,6 @@ public class P0015_3SumToZeroTest extends Helper<Function<int[], List<List<Integ
 
   @Test
   public void testThreeSum() {
-    test();
+    testAllStrategy();
   }
 }

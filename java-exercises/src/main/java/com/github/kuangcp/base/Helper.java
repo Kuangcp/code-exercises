@@ -23,7 +23,7 @@ public abstract class Helper<T> {
     resolverMap.put(title, resolver);
   }
 
-  protected void test() {
+  protected void testAllStrategy() {
     Consumer<T> consumer = this::testSuit;
 
     log.info("start all test");

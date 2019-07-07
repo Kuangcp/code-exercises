@@ -26,6 +26,6 @@ public class P0002_AddTwoNumberTest extends Helper<BiFunction<ListNode, ListNode
 
   @Test
   public void testMain() {
-    test();
+    testAllStrategy();
   }
 }

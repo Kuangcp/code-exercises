@@ -18,7 +18,7 @@ public class P0001_TwoSumTest extends Helper<BiFunction<int[], Integer, int[]>> 
 
   @Test
   public void testTwoSum() {
-    test();
+    testAllStrategy();
   }
 
   @Override
