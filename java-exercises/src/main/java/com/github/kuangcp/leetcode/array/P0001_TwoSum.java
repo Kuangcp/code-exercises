@@ -2,6 +2,7 @@ package com.github.kuangcp.leetcode.array;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.function.BiFunction;
 
 /*
  * @lc app=leetcode id=1 lang=java
@@ -33,6 +34,10 @@ import java.util.Map;
 class P0001_TwoSum {
 
   public int[] twoSum(int[] nums, int target) {
+    return useMap.apply(nums, target);
+  }
+
+  static BiFunction<int[], Integer, int[]> useMap = (nums, target) -> {
     int[] result = new int[2];
     Map<Integer, Integer> numberMap = new HashMap<>();
 
@@ -48,6 +53,6 @@ class P0001_TwoSum {
     }
 
     return result;
-  }
+  };
 }
 

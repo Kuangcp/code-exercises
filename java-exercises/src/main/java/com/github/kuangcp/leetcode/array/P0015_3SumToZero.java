@@ -3,14 +3,19 @@ package com.github.kuangcp.leetcode.array;
 import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.function.Function;
 
 /**
  * @author kuangcp on 2019-04-29 4:03 PM
  */
-public class P0015_3SumToZero {
+class P0015_3SumToZero {
+
+  public List<List<Integer>> threeSum(int[] nums) {
+    return useTwoCursor.apply(nums);
+  }
 
   // 31ms
-  public List<List<Integer>> threeSum(int[] nums) {
+  static Function<int[], List<List<Integer>>> useTwoCursor = nums -> {
     List<List<Integer>> res = new LinkedList<>();
     Arrays.sort(nums);
 
@@ -42,6 +47,5 @@ public class P0015_3SumToZero {
       }
     }
     return res;
-  }
-
+  };
 }

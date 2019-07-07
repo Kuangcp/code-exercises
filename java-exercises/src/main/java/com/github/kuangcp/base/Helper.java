@@ -5,6 +5,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.function.Consumer;
+import lombok.extern.slf4j.Slf4j;
 
 /**
  * 多种实现策略的辅助测试工具
@@ -12,6 +13,7 @@ import java.util.function.Consumer;
  * @author https://github.com/kuangcp
  * 2019-07-07 17:57
  */
+@Slf4j
 public abstract class Helper<T> {
 
   private Map<String, T> resolverMap = new HashMap<>();
@@ -24,11 +26,13 @@ public abstract class Helper<T> {
   protected void test() {
     Consumer<T> consumer = this::testSuit;
 
+    log.info("start all test");
     for (Entry<String, T> entry : resolverMap.entrySet()) {
       runTime.startCount();
       consumer.accept(entry.getValue());
       runTime.endCountOneLine(entry.getKey());
     }
+    log.info("end all test");
   }
 
   /**

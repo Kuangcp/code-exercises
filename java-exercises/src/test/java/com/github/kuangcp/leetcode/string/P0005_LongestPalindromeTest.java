@@ -1,18 +1,17 @@
 package com.github.kuangcp.leetcode.string;
 
 import com.github.kuangcp.base.Helper;
-import com.github.kuangcp.leetcode.string.P0005_LongestPalindrome.Resolver;
-import com.github.kuangcp.leetcode.string.P0005_LongestPalindrome.UseStack;
+import java.util.function.Function;
 import org.junit.Test;
 
 /**
  * @author https://github.com/kuangcp
  * 2019-07-07 17:56
  */
-public class P0005_LongestPalindromeTest extends Helper<Resolver> {
+public class P0005_LongestPalindromeTest extends Helper<Function<String, String>> {
 
   {
-    put("", new UseStack());
+    put("", P0005_LongestPalindrome.useStack);
   }
 
   @Test
@@ -21,7 +20,7 @@ public class P0005_LongestPalindromeTest extends Helper<Resolver> {
   }
 
   @Override
-  public void testSuit(Resolver resolver) {
+  public void testSuit(Function<String, String> function) {
 
   }
 }

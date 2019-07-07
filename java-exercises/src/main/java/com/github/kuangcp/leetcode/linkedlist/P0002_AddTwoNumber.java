@@ -1,14 +1,19 @@
 package com.github.kuangcp.leetcode.linkedlist;
 
+import java.util.function.BiFunction;
+
 /**
  * @author kuangcp on 2019-04-29 5:38 PM
  * https://leetcode.com/problems/add-two-numbers/description/
  */
-public class P0002_AddTwoNumber {
+class P0002_AddTwoNumber {
 
-  // me
   public ListNode addTwoNumbers(ListNode one, ListNode other) {
-    ListNode result = new ListNode(-1);
+    return me.apply(one, other);
+  }
+
+  static BiFunction<ListNode, ListNode, ListNode> me = (one, other) -> {
+    ListNode result = new ListNode(0);
     ListNode pointer = result;
 
     int temp = 0;
@@ -57,9 +62,33 @@ public class P0002_AddTwoNumber {
       appendNode(pointer, temp);
     }
     return result;
-  }
+  };
 
-  private ListNode appendNode(ListNode pointer, int value) {
+  static BiFunction<ListNode, ListNode, ListNode> simpler = (one, other) -> {
+    ListNode result = new ListNode(0);
+    ListNode pointer = result;
+
+    int carry = 0;
+    while (one != null || other != null) {
+      int sum = (one == null ? 0 : one.val) + (other == null ? 0 : other.val);
+      pointer.next = new ListNode((carry + sum) % 10);
+      carry = (carry + sum) / 10;
+      pointer = pointer.next;
+
+      if (one != null) {
+        one = one.next;
+      }
+      if (other != null) {
+        other = other.next;
+      }
+    }
+    if (carry > 0) {
+      pointer.next = new ListNode(carry);
+    }
+    return result.next;
+  };
+
+  private static ListNode appendNode(ListNode pointer, int value) {
     pointer.next = new ListNode(value);
     pointer = pointer.next;
 
@@ -71,31 +100,4 @@ public class P0002_AddTwoNumber {
     }
     return pointer;
   }
-
-  // other best
-  public ListNode addTwoNumbers2(ListNode l1, ListNode l2) {
-    ListNode result = new ListNode(0);
-    ListNode pointer = result;
-
-    int carry = 0;
-    while (l1 != null || l2 != null) {
-      int sum = (l1 == null ? 0 : l1.val) + (l2 == null ? 0 : l2.val);
-      pointer.next = new ListNode((carry + sum) % 10);
-      carry = (carry + sum) / 10;
-      pointer = pointer.next;
-
-      if (l1 != null) {
-        l1 = l1.next;
-      }
-      if (l2 != null) {
-        l2 = l2.next;
-      }
-    }
-    if (carry > 0) {
-      pointer.next = new ListNode(carry);
-    }
-    return result.next;
-  }
-
-
 }
