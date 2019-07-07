@@ -75,7 +75,7 @@ class LinkedQueue<T> implements Iterable<T> {
     }
 
     count++;
-    log.info("+1 {} {}", count, value);
+//    log.info("+1 {} {}", count, value);
   }
 
   T poll() {
@@ -85,7 +85,7 @@ class LinkedQueue<T> implements Iterable<T> {
     T result = this.head.value;
     this.head = this.head.next;
     count--;
-    log.info("-1 {} {}", count, result);
+//    log.info("-1 {} {}", count, result);
 
     if (Objects.isNull(this.head)) {
       this.tail = null;

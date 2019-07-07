@@ -33,5 +33,7 @@ dependencies {
 
   implementation 'ch.qos.logback:logback-classic:1.2.3'
 
+  implementation 'com.github.kuangcp:kcp-tool:1.0.4'
+
   testImplementation 'junit:junit:4.12'
 }
