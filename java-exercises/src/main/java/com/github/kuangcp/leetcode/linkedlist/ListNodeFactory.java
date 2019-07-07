@@ -32,4 +32,35 @@ class ListNodeFactory {
     }
     System.out.println("null");
   }
+
+  static int length(ListNode head) {
+    if (Objects.isNull(head)) {
+      return 0;
+    }
+    int count = 0;
+    ListNode pointer = head;
+    while (Objects.nonNull(pointer)) {
+      count++;
+      pointer = pointer.next;
+    }
+    return count;
+  }
+
+  static int[] toArray(ListNode head) {
+    if (Objects.isNull(head)) {
+      return null;
+    }
+
+    int length = length(head);
+    int[] result = new int[length];
+    ListNode pointer = head;
+    int count = 0;
+    while (Objects.nonNull(pointer)) {
+      result[count++] = pointer.val;
+      pointer = pointer.next;
+    }
+
+    return result;
+  }
+
 }

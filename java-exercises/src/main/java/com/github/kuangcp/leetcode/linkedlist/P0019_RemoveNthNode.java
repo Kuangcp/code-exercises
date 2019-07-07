@@ -1,14 +1,21 @@
 package com.github.kuangcp.leetcode.linkedlist;
 
 import java.util.Objects;
+import java.util.function.BiFunction;
 
 /**
+ * 移除第N个节点, 如果超出链表长度 则移除头结点
+ *
  * @author kuangcp on 2019-04-29 6:41 PM
  */
-public class P0019_RemoveNthNode {
+class P0019_RemoveNthNode {
+
+  public ListNode removeNthFromEnd(ListNode head, int n) {
+    return simpler.apply(head, n);
+  }
 
   // fast & slow pointer  https://leetcode.com/submissions/detail/225829332/
-  public ListNode removeNthFromEnd(ListNode head, int n) {
+  static BiFunction<ListNode, Integer, ListNode> me = (head, n) -> {
     ListNode fast = head;
     ListNode slow = head;
     ListNode front = head;
@@ -47,10 +54,9 @@ public class P0019_RemoveNthNode {
       slowCount++;
     }
     return head;
-  }
+  };
 
-  // fast & slow
-  public ListNode removeNthFromEnd2(ListNode head, int n) {
+  static BiFunction<ListNode, Integer, ListNode> simpler = (head, n) -> {
     ListNode fast = head;
     ListNode slow = head;
 
@@ -67,5 +73,5 @@ public class P0019_RemoveNthNode {
     }
     slow.next = slow.next.next;
     return head;
-  }
+  };
 }
